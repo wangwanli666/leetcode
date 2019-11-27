@@ -22,11 +22,14 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         hash_map = {}
-        i, dis = -1, 0
+        # i用来表示计数起点，len表示长度
+        i, len = -1, 0
         for j in range(len(s)):
             if s[j] in hash_map:
+                # 如果s[j]在字典映射中，更新i的值
                 i = max(i, hash_map[s[j]])
-            dis = max(dis, j - i)
+            # 更新长度
+            len = max(len, j - i)
             hash_map[s[j]] = j
-        return dis
+        return len
 
