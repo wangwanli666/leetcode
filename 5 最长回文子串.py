@@ -2,7 +2,6 @@
 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。
 
 示例 1：
-
 输入: "babad"
 输出: "bab"
 注意: "aba" 也是一个有效答案。
@@ -19,14 +18,13 @@
 
 
 class Solution:
-    def longestPalindrome(self, s: str) -> str:
+    def longest_Palindrome(self, s: str) -> str:
         def expand(l, r):
             # 注意r不能等于n
             while (l >= 0 and r < n and s[l] == s[r]):
                 l -= 1
                 r += 1
             return r - l - 1
-
         # 特判
         if (not s or len(s) == 1):
             return s
